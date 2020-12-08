@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "10748430-7b94-4282-928f-90c1b3565c8b",
+		"name": "Postman Test Collection",
+		"description": "This is a test collection for Postman.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{url}}/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "65290e15-8f9c-4ead-98e9-8a819013816d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Check if user ID 1 is Leanne Graham\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].name).to.eql(\"Leanne Graham\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 11,\r\n        \"name\": \"Baloba Binclava\",\r\n        \"username\": \"Bret\",\r\n        \"email\": \"Sincere@april.biz\",\r\n        \"address\": {\r\n            \"street\": \"Kulas Light\",\r\n            \"suite\": \"Apt. 556\",\r\n            \"city\": \"Gwenborough\",\r\n            \"zipcode\": \"92998-3874\",\r\n            \"geo\": {\r\n                \"lat\": \"-37.3159\",\r\n                \"lng\": \"81.1496\"\r\n            }\r\n        },\r\n        \"phone\": \"1-770-736-8031 x56442\",\r\n        \"website\": \"hildegard.org\",\r\n        \"company\": {\r\n            \"name\": \"Romaguera-Crona\",\r\n            \"catchPhrase\": \"Multi-layered client-server neural-net\",\r\n            \"bs\": \"harness real-time e-markets\"\r\n        }\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{url}}/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/2",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
